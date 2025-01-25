@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: black;
+            font-family: fantasy;
+            color: white;
+        }
+        form {
+            width: 100%;
+            max-width: 500px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+        input, #btn {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 80vh;
+            padding: 20px;
+            text-align: center;
+        }
+        a {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: right;
+            color: yellow;
+        }
+        #btn {
+            background-color: palevioletred;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #btn:hover {
+            background-color: #d26a8d;
+        }
+        .link {
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="email">Enter Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Enter Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <a href="#">Forgot Password?</a>
+        <button id="btn" name="login">Login</button>
+        <a href="index.html" class="link">Create Account</a>
+    </div>
+    <script>
+        document.getElementById('btn').addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent form submission
+
+            // Collect user input
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+
+            // Validate input fields
+            if (email === "" || password === "") {
+                alert("Please fill in both email and password.");
+                return;
+            }
+
+            // Send data to the backend
+            fetch('../controller/create.php', {
+                method: 'POST',
+            })
+            .then(response => response.json())
+            .then(json => {
+                if (json.message === "Login successful") {
+                    alert('Login successful');
+                    window.location.href = "./home.html";
+                } else {
+                    alert('Invalid credentials, please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Something went wrong. Please try again later.');
+            });
+        });
+    </script>
+</body>
+</html>

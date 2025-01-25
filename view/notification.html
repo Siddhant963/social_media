@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: fantasy;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        
+        .navbar {
+            background-color: #333;
+            color: white;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            padding: 8px 0;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.3rem;
+        }
+
+        .navbar a svg {
+            width: 14px;
+            height: 14px;
+            margin-bottom: 5px;
+        }
+
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: row;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    .navbar a {
+        font-size: 0.5rem;
+    }
+    .navbar a svg {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+/* Larger mobile and tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+.container{
+    width: 60%;
+    height: 100%;
+    background-color: black;
+    align-items: center;
+    margin-left: 20%;
+    padding: 10px;
+}
+.Main{
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.box{
+    width: 70%;
+    height: 90%;
+    background-color: pink;
+    align-items: center;
+    margin: auto;
+}
+.profile{
+    width: 100%;
+    background-color: pink;
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.img{
+background-color: black;
+height: 20px;
+width: 20px;
+border-radius: 50%;
+}
+.menu svg{
+    height: 20px;
+    width: 20px;
+}
+.post img{
+    width: 100%;
+    height: 70vh;
+}
+.profile p{
+    font-size: 15px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="Main">
+    <div class="navbar">
+        <a href="home.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 3L1 12h3v8h5v-5h4v5h5v-8h3z"/></svg>
+            Home
+        </a>
+        <a href="search.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M10 2a8 8 0 106.32 13.9l5.37 5.37 1.42-1.42-5.37-5.37A8 8 0 0010 2zm0 2a6 6 0 110 12A6 6 0 0110 4z"/></svg>
+            Search
+        </a>
+
+        <a href="notification.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 22a2 2 0 002-2h-4a2 2 0 002 2zm6-6V9a6 6 0 00-12 0v7H4l1 1v1h14v-1l1-1h-2z"/></svg>
+            Notifications
+        </a>
+        <a href="create.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"/></svg>
+            Create
+        </a>
+        <a href="profile.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+                <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 2a8 8 0 110 16 8 8 0 010-16zm0 3a3 3 0 110 6 3 3 0 010-6zm0 10c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+            Profile
+        </a>
+    </div>
+    <h1>Notifications</h1>
+</body>
