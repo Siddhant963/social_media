@@ -90,8 +90,8 @@
             }
 
             // Send data to the backend
-            fetch('../controller/create.php', {
-                method: 'POST',
+            fetch(`../contoller/create.php?email=${email}&password=${password}`, {
+                method: 'GET',
             })
             .then(response => response.json())
             .then(json => {
@@ -101,6 +101,7 @@
                 } else {
                     alert('Invalid credentials, please try again.');
                 }
+               
             })
             .catch(error => {
                 console.error('Error:', error);

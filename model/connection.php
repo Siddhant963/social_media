@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
 $username = "root";
-$password = "Annu#2005";
+$password = "Siddhant@0867";
 $database = "social_app"; 
 
 
@@ -11,6 +11,6 @@ if (!$conn) {
     echo "not connected".mysqli_connect_error();
 }
 else{
-echo "Connected successfully";
+// echo "Connected successfully";
 }
 ?>

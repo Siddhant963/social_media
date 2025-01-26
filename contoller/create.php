@@ -2,9 +2,9 @@
 include '../model/connection.php';
 session_start();
 
-if(isset($_POST['email']) && isset($_POST['password'])) {
-    $password = md5($_POST['password']);
-    $email = $_POST['email'];
+if(isset($_GET['email']) && isset($_GET['password'])) {
+    $password = md5($_GET['password']);
+    $email = $_GET['email'];
     $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
     $result = mysqli_query($conn, $sql);
 
@@ -13,14 +13,14 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
         $user = mysqli_fetch_assoc($result);
         
         // Save user data to the session
-        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_id'] = $user['userID'];
         $_SESSION['user_email'] = $user['email'];
-        $_SESSION['user_name'] = $user['name']; // Assuming there's a 'name' column in your users table
+       // Assuming there's a 'name' column in your users table
 
         // Return success message
         $response['message'] = "Login successful";
         $response['user'] = [
-            'id' => $user['id'],
+            'id' => $user['userID'],
             'email' => $user['email'],
             'name' => $user['name']
         ];
